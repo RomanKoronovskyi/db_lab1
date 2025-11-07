@@ -15,20 +15,18 @@ class Program
             var project = new Project
             {
                 ProjectName = "CRM Integration",
-                ClientId = 1,
-                ManagerId = 2,
+                ClientId = 3,
+                ManagerId = 3,
                 StatusId = 1,
                 TeamId = null,
-                UpdatedByUserId = 2
+                UpdatedByUserId = 4
             };
             uow.Projects.AddProject(project);
             Console.WriteLine("Project added successfully.");
 
-            // 2. Оновити статус завдання
             uow.Tasks.UpdateTaskStatus(1, 2, 2);
             Console.WriteLine("Task status updated.");
 
-            // 3. Отримати всі проєкти
             var projects = uow.Projects.GetProjectsDetailed();
             Console.WriteLine("\nProjects List:");
             foreach (var p in projects)
